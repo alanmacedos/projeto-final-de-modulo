@@ -1,0 +1,93 @@
+AutoEnergy
+Power Garage
+GreenGarage
+AutoWatt
+WattCar
+
+the application's name is AutoEnergy it's for measure energy consumption and energy efficiency in automotive mechanical centers, and must have the following features: the user chooses in a drop-down menu the eletrical appliances that he has, after that he's able to put in an input box the consumption (watts) of each appliance and how frequently it's used, and when it's used for how long, and after collecting this data, the website gives an approximation of how much watts is consumed and how much it cost (will be a energy tax already for the calculation) so it's given some tip/overview in purpose to increase the energy efficiency. That's my primary idea, i want it simple, no need to be very smart or use AI.
+
+Architecture Check
+
+✅ One appliance → Object
+
+✅ Multiple appliances → Array
+
+✅ Consumption → Calculated from appliance data
+
+✅ Total consumption → Sum of all appliance consumptions
+
+✅ Cost → Consumption × Energy Rate
+
+Current AutoEnergy Data Model
+
+One appliance:
+
+Appliance
+├── Name
+├── Watts
+├── HoursPerDay
+└── DaysPerMonth
+
+Multiple appliances:
+
+Appliances Array
+├── Compressor
+├── Lighting
+├── Computer
+└── Lift
+
+User flow:
+
+User fills form
+       ↓
+JS reads values
+       ↓
+Validate values
+       ↓
+Create Appliance Object
+       ↓
+Add Object to Array
+       ↓
+Recalculate totals
+       ↓
+Show results
+
+AUTOENERGY ARCHITECTURE
+
+Appliances Array
+│
+├── Appliance Object
+│   ├── Name
+│   ├── Watts
+│   ├── HoursPerDay
+│   └── DaysPerMonth
+│
+├── Appliance Object
+│   ├── Name
+│   ├── Watts
+│   ├── HoursPerDay
+│   └── DaysPerMonth
+│
+└── Appliance Object
+    ├── Name
+    ├── Watts
+    ├── HoursPerDay
+    └── DaysPerMonth
+To calculate total consumption:
+
+for each appliance:
+    calculate appliance consumption
+    add to total
+✅ An appliance is best represented as an Object.
+
+✅ Multiple appliances should be stored in an Array.
+
+✅ Consumption and cost are derived data and should be calculated when needed.
+
+✅ push() in JavaScript plays a role similar to Add() in a C# List.
+
+✅ Loops (foreach concept) will be used to process all appliances.
+
+✅ Names are not necessarily unique in the real world.
+
+✅ Data modeling should reflect the business reality, not arbitrary programming restrictions.
