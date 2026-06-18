@@ -78,6 +78,7 @@ To calculate total consumption:
 for each appliance:
     calculate appliance consumption
     add to total
+    
 ✅ An appliance is best represented as an Object.
 
 ✅ Multiple appliances should be stored in an Array.
