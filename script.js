@@ -72,5 +72,8 @@ const balanceadorDeRoda = {
 };
 
 function calculateConsumption (appliance) {
-    (watts * hoursPerDay * daysPerMonth * quantity) / 1000;
+    return (appliance.watts * appliance.hoursPerDay * appliance.daysPerMonth * appliance.quantity) / 1000;
 }
+
+const variable = calculateConsumption(elevacar);
+console.log(variable);
