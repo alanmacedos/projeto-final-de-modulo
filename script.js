@@ -1,9 +1,14 @@
+// actual energy rate
+const energyRateKWh = 1.05;
+
+// fixed objects
 const elevacar = {
     name : "Elevacar",
     watts : 3000,
     hoursPerDay : 1,
     daysPerMonth : 20,
     quantity : 3,
+    category : "Elevação",
 };
 
 const ventiladorSolaster = {
@@ -12,6 +17,7 @@ const ventiladorSolaster = {
     hoursPerDay : 8,
     daysPerMonth : 10,
     quantity : 1,
+    category : "Ventilação",
 };
 
 const ventiladorTron = {
@@ -20,6 +26,7 @@ const ventiladorTron = {
     hoursPerDay : 8,
     daysPerMonth : 10,
     quantity : 1,
+    category : "Ventilação",
 };
 
 const ventiladorArge = {
@@ -28,6 +35,7 @@ const ventiladorArge = {
     hoursPerDay : 8,
     daysPerMonth : 10,
     quantity : 1,
+    category : "Ventilação",
 };
 
 const filtroDeAgua = {
@@ -36,6 +44,7 @@ const filtroDeAgua = {
     hoursPerDay : 24,
     daysPerMonth : 20,
     quantity : 1,
+    category : "Suporte",
 };
 
 const calibradorDePneu = {
@@ -44,6 +53,7 @@ const calibradorDePneu = {
     hoursPerDay : 2,
     daysPerMonth : 20,
     quantity : 2,
+    category : "Suporte",
 
 };
 
@@ -53,6 +63,7 @@ const lampadas = {
     hoursPerDay : 12,
     daysPerMonth : 20,
     quantity : 58,
+    category : "Iluminação",
 };
 
 const carregadorDeBateria = {
@@ -61,6 +72,7 @@ const carregadorDeBateria = {
     hoursPerDay : 0.5,
     daysPerMonth : 7,
     quantity : 1,
+    category : "Suporte",
 };
 
 const balanceadorDeRoda = {
@@ -69,11 +81,56 @@ const balanceadorDeRoda = {
     hoursPerDay : 1,
     daysPerMonth : 5,
     quantity : 1,
+    category : "Suporte",
 };
 
+// consumption functions
 function calculateConsumption (appliance) {
     return (appliance.watts * appliance.hoursPerDay * appliance.daysPerMonth * appliance.quantity) / 1000;
 }
 
-const variable = calculateConsumption(elevacar);
-console.log(variable);
+function calculateTotalConsumption (appliances) {
+    let totalConsumption = 0;
+
+    for (const appliance of appliances) {
+        totalConsumption += calculateConsumption(appliance);
+    }
+
+    return totalConsumption;
+}
+
+// cost function
+function calculateCost (totalConsumption) {
+    const totalCost =  energyRateKWh * totalConsumption;
+
+    return totalCost;
+}
+
+// efficiency tips
+const efficiencyTips = {
+    idle : "Tire da tomada quando não estiver em uso.",
+    maintainence : "Faça as devidas manutenções preventivas para manter a eficiência e o bom funcionamento.",
+    lighting : "Recomenda-se lâmpadas de LED e buscar alternativas de aproveita mento de luz solar.",
+}
+
+// appliances array
+const appliances = [
+    elevacar, 
+    ventiladorSolaster,
+    ventiladorTron,
+    ventiladorArge,
+    filtroDeAgua, 
+    calibradorDePneu,
+    lampadas,
+    carregadorDeBateria,
+    balanceadorDeRoda,
+];
+
+// results
+const totalConsumption = calculateTotalConsumption(appliances);
+const cost = calculateCost(totalConsumption);
+
+// display the results
+console.log(`Consumo de kWh: ${totalConsumption.toFixed(2)}.`);
+console.log(`Custo: R$ ${cost.toFixed(2)}.`);
+

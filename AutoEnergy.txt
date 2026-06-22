@@ -92,3 +92,12 @@ for each appliance:
 ✅ Names are not necessarily unique in the real world.
 
 ✅ Data modeling should reflect the business reality, not arbitrary programming restrictions.
+
+EFFICIENCY TIPS/OBSERVATIONS
+
+The program must show just 3, in porpouse to make easier the front-end.
+
+- Create the object efficiencyTips
+- Put category as a property off all objects
+- If contains X category show Y tip
+- Create a set() to don't show the same tip twice
