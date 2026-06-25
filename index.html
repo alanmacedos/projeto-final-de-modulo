@@ -18,6 +18,76 @@
 
     <main>
 
+        <div id="superior">
+
+            <h1 id="title">AUTOENERGY</h1>
+            <p id="introduction">O AutoEnergy é uma ferramenta desenvolvida para auxiliar centros automotivos na estimativa do consumo de energia elétrica de seus equipamentos. A aplicação permite calcular o consumo mensal, estimar custos operacionais e apresentar recomendações simples para o uso mais eficiente da energia.</p>
+
+            <form id="input">
+
+                <input type="text" id="name" placeholder="nome">
+                <input type="number" id="watts" placeholder="watts">
+                <input type="number" id="hoursPerDay" placeholder="horas por dia">
+                <input type="number" id="daysPerMonth" placeholder="dias por mês">
+                <input type="number" id="quantity" placeholder="quantidade">
+                
+                <select id="category">
+
+                    <option value="Selecione uma categoria"></option>
+                    <option value="Elevação">Elevação</option>
+                    <option value="Suporte">Suporte</option>
+                    <option value="Iluminação">Iluminação</option>
+
+                </select>
+
+                <button id="button" type="submit">
+                    adicionar
+                </button>
+
+            </form>
+
+        </div>
+
+        <div id="inferior">
+
+            <h1 id="titleResults">SUA SIMULAÇÃO</h1>
+
+            <div id="consumptionAndCost">
+
+                <h2 id="consumptionTitle">Consumo Mensal</h2>
+                <h4 id="consumption">valor</h4>
+
+                <h2 id="energyRateTitle">Tarifa de Energia</h2>
+                <h4 id="energyRate">valor</h4>
+
+                <h2 id="costTitle">Custo</h2>
+                <h4 id="cost">valor</h4>
+
+                <p>OBS: Os valores apresentados representam uma estimativa mensal baseada no consumo de energia (kWh). A tarifa utilizada possui caráter aproximado e foi adotada apenas para fins de simulação.</p>
+
+            </div>
+
+            <div id="tips">
+
+                <div id="tip1">
+                    <h4 id="title1"></h4>
+                    <p id="textTip1"></p>
+                </div>
+
+                <div id="tip2">
+                    <h4 id="title2"></h4>
+                    <p id="textTip2"></p>
+                </div>
+
+                <div id="tip3">
+                    <h4 id="title3"></h4>
+                    <p id="textTip3"></p>
+                </div>
+
+            </div>
+
+        </div>
+
     </main>
 
     <footer>

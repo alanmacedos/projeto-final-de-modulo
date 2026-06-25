@@ -1,88 +1,24 @@
 // actual energy rate
 const energyRateKWh = 1.05;
 
-// fixed objects
-const elevacar = {
-    name : "Elevacar",
-    watts : 3000,
-    hoursPerDay : 1,
-    daysPerMonth : 20,
-    quantity : 3,
-    category : "Elevação",
-};
+// appliances array
+const appliances = [];
 
-const ventiladorSolaster = {
-    name : "Ventilador Solaster",
-    watts : 270,
-    hoursPerDay : 8,
-    daysPerMonth : 10,
-    quantity : 1,
-    category : "Ventilação",
-};
-
-const ventiladorTron = {
-    name : "Ventilador Tron",
-    watts : 140,
-    hoursPerDay : 8,
-    daysPerMonth : 10,
-    quantity : 1,
-    category : "Ventilação",
-};
-
-const ventiladorArge = {
-    name : "Ventilador Arge MAX",
-    watts : 150,
-    hoursPerDay : 8,
-    daysPerMonth : 10,
-    quantity : 1,
-    category : "Ventilação",
-};
-
-const filtroDeAgua = {
-    name : "Filtro de Água",
-    watts : 9,
-    hoursPerDay : 24,
-    daysPerMonth : 20,
-    quantity : 1,
-    category : "Suporte",
-};
-
-const calibradorDePneu = {
-    name : "Calibrador de Pneu",
-    watts : 8,
-    hoursPerDay : 2,
-    daysPerMonth : 20,
-    quantity : 2,
-    category : "Suporte",
-
-};
-
-const lampadas = {
-    name : "Lâmpadas",
-    watts : 72,
-    hoursPerDay : 12,
-    daysPerMonth : 20,
-    quantity : 58,
-    category : "Iluminação",
-};
-
-const carregadorDeBateria = {
-    name : "Carregador de bateria",
-    watts : 120,
-    hoursPerDay : 0.5,
-    daysPerMonth : 7,
-    quantity : 1,
-    category : "Suporte",
-};
-
-const balanceadorDeRoda = {
-    name : "Balanceador de roda",
-    watts : 370,
-    hoursPerDay : 1,
-    daysPerMonth : 5,
-    quantity : 1,
-    category : "Suporte",
-};
+function Appliance (
+    name,
+    watts,
+    hoursPerDay,
+    daysPerMonth,
+    quantity,
+    category,
+) {
+    this.name = name;
+    this.watts = watts;
+    this.hoursPerDay = hoursPerDay;
+    this.daysPerMonth = daysPerMonth;
+    this.quantity = quantity;
+    this.category = category;
+}
 
 // consumption functions
 function calculateConsumption (appliance) {
@@ -108,10 +44,9 @@ function calculateCost (totalConsumption) {
 
 // efficiency tip function
 
-function defineEfficiencyTip (appliances) {
+function definedEfficiencyTip (appliances) {
     
     const tipsMap = new Map();
-    tipsMap.set()
 
     for (const appliance of appliances) {
     
@@ -120,27 +55,32 @@ function defineEfficiencyTip (appliances) {
             if (!tipsMap.has(efficiencyTips.maintainence))
             {
                 tipsMap.set(efficiencyTips.maintainence, []);
-            }   
-
-            const listAppliances = tipsMap.get(efficiencyTips.maintainence);
-            listAppliances.push(appliance.name);
-
-            // else if (tipsMap.has(efficiencyTips.maintainence))
-            // {
-            // const listAppliances = tipsMap.get(efficiencyTips.maintainence);
-            // listAppliances.push(appliance.name);
-            // tipsMap.set(efficiencyTips.maintainence, listAppliances);
-            // }
+            }
+            
+            tipsMap.get(efficiencyTips.maintainence)
+                   .push(appliance.name);
         }
 
         else if (appliance.category === "Suporte")
         {
-            // setTips.add(efficiencyTips.idle);
+            if (!tipsMap.has(efficiencyTips.idle))
+            {
+                tipsMap.set(efficiencyTips.idle, []);
+            }
+            
+            tipsMap.get(efficiencyTips.idle)
+                   .push(appliance.name);
         }
 
         else
         {
-            // setTips.add(efficiencyTips.lighting);
+            if (!tipsMap.has(efficiencyTips.lighting))
+            {
+                tipsMap.set(efficiencyTips.lighting, []);
+            }
+            
+            tipsMap.get(efficiencyTips.lighting)
+                   .push(appliance.name);
         }
     }
 
@@ -154,27 +94,54 @@ const efficiencyTips = {
     lighting : "Recomenda-se lâmpadas de LED e buscar alternativas de aproveitamento de luz solar.",
 };
 
-// appliances array
-const appliances = [
-    elevacar, 
-    ventiladorSolaster,
-    ventiladorTron,
-    ventiladorArge,
-    filtroDeAgua, 
-    calibradorDePneu,
-    lampadas,
-    carregadorDeBateria,
-    balanceadorDeRoda,
-];
+// refresh screen
+function updateScreen() {
+    
+    const totalConsumption = calculateTotalConsumption(appliances);
+
+    const cost = calculateCost(totalConsumption);
+
+    const tips = defineEfficiencyTip(appliances);
+
+    document.getElementById("consumption").textContent = `${totalConsumption.toFixed(2)} kWh`;
+
+    document.getElementById("energyRate").textContent = `R$ ${energyRateKWh.toFixed(2)}`;
+
+    document.getElementById("cost").textContent = `R$ ${cost.toFixed(2)}`;
+
+    console.log(tips);
+}
 
 // results
-const totalConsumption = calculateTotalConsumption(appliances);
-const cost = calculateCost(totalConsumption);
+// const totalConsumption = calculateTotalConsumption(appliances);
+// const cost = calculateCost(totalConsumption);
 
-// display the results related to kWh and cost
-console.log(`Consumo de kWh: ${totalConsumption.toFixed(2)}.`);
-console.log(`Custo: R$ ${cost.toFixed(2)}.`);
+// // display the results related to kWh and cost
+// console.log(`Consumo de kWh: ${totalConsumption.toFixed(2)}.`);
+// console.log(`Custo: R$ ${cost.toFixed(2)}.`);
 
-// efficiency tips
-const definedEfficiencyTips = defineEfficiencyTip(appliances);
-console.log(definedEfficiencyTips)
+// // efficiency tips
+// const tips = definedEfficiencyTip(appliances);
+// console.log(tips);
+
+const form = document.getElementById("input");
+
+form.addEventListener("submit", function(event) {
+
+    event.preventDefault();
+
+    const appliance = new Appliance(
+        document.getElementById("name").value,
+        Number(document.getElementById("watts").value),
+        Number(document.getElementById("hoursPerDay").value),
+        Number(document.getElementById("daysPerMonth").value),
+        Number(document.getElementById("quantity").value),
+        document.getElementById("category").value
+    );
+
+    appliances.push(appliance);
+
+    updateResults();
+
+    console.log(appliances);
+});
