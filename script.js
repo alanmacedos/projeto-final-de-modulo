@@ -106,12 +106,53 @@ function calculateCost (totalConsumption) {
     return totalCost;
 }
 
+// efficiency tip function
+
+function defineEfficiencyTip (appliances) {
+    
+    const tipsMap = new Map();
+    tipsMap.set()
+
+    for (const appliance of appliances) {
+    
+        if (appliance.category === "Elevação")
+        {
+            if (!tipsMap.has(efficiencyTips.maintainence))
+            {
+                tipsMap.set(efficiencyTips.maintainence, []);
+            }   
+
+            const listAppliances = tipsMap.get(efficiencyTips.maintainence);
+            listAppliances.push(appliance.name);
+
+            // else if (tipsMap.has(efficiencyTips.maintainence))
+            // {
+            // const listAppliances = tipsMap.get(efficiencyTips.maintainence);
+            // listAppliances.push(appliance.name);
+            // tipsMap.set(efficiencyTips.maintainence, listAppliances);
+            // }
+        }
+
+        else if (appliance.category === "Suporte")
+        {
+            // setTips.add(efficiencyTips.idle);
+        }
+
+        else
+        {
+            // setTips.add(efficiencyTips.lighting);
+        }
+    }
+
+    return tipsMap;
+}
+
 // efficiency tips
 const efficiencyTips = {
     idle : "Tire da tomada quando não estiver em uso.",
     maintainence : "Faça as devidas manutenções preventivas para manter a eficiência e o bom funcionamento.",
-    lighting : "Recomenda-se lâmpadas de LED e buscar alternativas de aproveita mento de luz solar.",
-}
+    lighting : "Recomenda-se lâmpadas de LED e buscar alternativas de aproveitamento de luz solar.",
+};
 
 // appliances array
 const appliances = [
@@ -130,7 +171,10 @@ const appliances = [
 const totalConsumption = calculateTotalConsumption(appliances);
 const cost = calculateCost(totalConsumption);
 
-// display the results
+// display the results related to kWh and cost
 console.log(`Consumo de kWh: ${totalConsumption.toFixed(2)}.`);
 console.log(`Custo: R$ ${cost.toFixed(2)}.`);
 
+// efficiency tips
+const definedEfficiencyTips = defineEfficiencyTip(appliances);
+console.log(definedEfficiencyTips)

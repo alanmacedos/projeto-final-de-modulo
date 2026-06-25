@@ -100,4 +100,42 @@ The program must show just 3, in porpouse to make easier the front-end.
 - Create the object efficiencyTips
 - Put category as a property off all objects
 - If contains X category show Y tip
+{
+       suporte = idle
+       elevacao = maintenance
+       Lighting = lighting
+}
 - Create a set() to don't show the same tip twice
+
+FOR WICH APPLIANCE IS THE TIP FOR?
+
+dictionary
+- key = 
+
+recommendations
+│
+├── maintenance
+│   ├── Elevacar
+│   └── Compressor
+│
+├── idle
+│   ├── Filtro de Água
+│   └── Carregador
+│
+└── lighting
+    └── Lâmpadas
+
+-----------------------------------------------------------------
+
+cria Map
+
+para cada aparelho
+
+    descobre qual dica recebe
+
+    se dica ainda não existe no Map
+        cria entrada
+
+    adiciona nome do aparelho
+
+retorna Map
