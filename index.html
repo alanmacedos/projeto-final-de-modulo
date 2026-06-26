@@ -31,9 +31,9 @@
                 <input type="number" id="daysPerMonth" placeholder="dias por mês">
                 <input type="number" id="quantity" placeholder="quantidade">
                 
-                <select id="category">
+                <select id="category" required>
 
-                    <option value="Selecione uma categoria"></option>
+                    <option value="" selected disabled>selecione</option>
                     <option value="Elevação">Elevação</option>
                     <option value="Suporte">Suporte</option>
                     <option value="Iluminação">Iluminação</option>
@@ -55,13 +55,13 @@
             <div id="consumptionAndCost">
 
                 <h2 id="consumptionTitle">Consumo Mensal</h2>
-                <h4 id="consumption">valor</h4>
+                <h4 id="consumption"></h4>
 
                 <h2 id="energyRateTitle">Tarifa de Energia</h2>
-                <h4 id="energyRate">valor</h4>
+                <h4 id="energyRate"></h4>
 
                 <h2 id="costTitle">Custo</h2>
-                <h4 id="cost">valor</h4>
+                <h4 id="cost"></h4>
 
                 <p>OBS: Os valores apresentados representam uma estimativa mensal baseada no consumo de energia (kWh). A tarifa utilizada possui caráter aproximado e foi adotada apenas para fins de simulação.</p>
 

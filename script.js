@@ -87,6 +87,43 @@ function definedEfficiencyTip (appliances) {
     return tipsMap;
 }
 
+function displayTips(tipsMap) {
+
+    let counter = 0;
+
+    const itsTip1 = document.getElementById(tip1);
+    const itsTip2 = null;
+    const itsTip3 = null;
+
+    for (const [tip, appliances] of tipsMap)
+    {
+       counter++;
+       if (counter == 1)
+        {
+            // show idle tip and appliances
+            get(tip);
+            get(appliances);
+
+        }
+
+        else if (counter == 2)
+        {
+            // show maintainence tip and appliances
+
+            get(tip);
+            get(appliances);
+        }
+
+        else
+        {
+            // show lighting tip and appliances
+
+            get(tip);
+            get(appliances);
+        }
+    }
+}
+
 // efficiency tips
 const efficiencyTips = {
     idle : "Tire da tomada quando não estiver em uso.",
@@ -101,7 +138,7 @@ function updateScreen() {
 
     const cost = calculateCost(totalConsumption);
 
-    const tips = defineEfficiencyTip(appliances);
+    const tips = definedEfficiencyTip(appliances);
 
     document.getElementById("consumption").textContent = `${totalConsumption.toFixed(2)} kWh`;
 
@@ -141,7 +178,8 @@ form.addEventListener("submit", function(event) {
 
     appliances.push(appliance);
 
-    updateResults();
+    updateScreen();
 
     console.log(appliances);
 });
+
