@@ -1,0 +1,113 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: #10b981
+}
+
+
+main {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.start {
+    background-color: white;
+    font-family: 'Inter', sans-serif;
+    text-align: justify;
+    border-radius: 10px;
+    width: 80vw;
+    height: auto;
+    padding: 15px;
+    margin-top: 40px;
+}
+
+.title {
+    font-family: 'Archivo Black', sans-serif;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 10px;
+}
+
+.simulation {
+    background-color: white;
+    font-family: 'Inter', sans-serif;
+    text-align: justify;
+    border-radius: 10px;
+    width: 80vw;
+    height: auto;
+    padding: 15px;
+    margin-top: 40px;
+}
+
+.consumptionAndCost {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+}
+
+.boxesRow {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 50px;
+}
+
+.consumptionBoxes {
+    background-color: #f2f2f2;
+    border-radius: 25px;
+
+    width: 250px;
+    height: 290px;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+}
+
+.consumptionBoxes h2 {
+    background-color: #10b981;
+    padding: 10px 20px;
+    border-radius: 15px;
+
+    font-family: 'Archivo Black', sans-serif;
+    font-size: 2rem;
+}
+
+.value {
+    font-family: 'Archivo Black', sans-serif;
+    font-size: 5rem;
+}
+
+/* .consumptionBoxes #consumption {
+    font-family: 'Archivo Black', sans-serif;
+    font-size: 40px;
+} */
+
+.unit {
+    font-family: 'Archivo Black', sans-serif;
+    font-size: 1rem;
+}
+
+.obs {
+    text-align: center;
+    font-size: 0.6rem;
+}
+
+.tips {
+    background-color: white;
+    font-family: 'Inter', sans-serif;
+    text-align: justify;
+    border-radius: 10px;
+    width: 80vw;
+    height: auto;
+    padding: 5px;
+    margin-top: 40px;
+}

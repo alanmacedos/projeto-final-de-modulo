@@ -1,27 +1,43 @@
 <!DOCTYPE html>
 <html lang="pt-br">
+
 <head>
     <meta charset="UTF-8">
     <meta: http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>AutoEnergy</title>
-    <link rel="stylesheet" href="style.css">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>AutoEnergy</title>
+        <link rel="stylesheet" href="style.css">
+
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Archivo+Black&display=swap" rel="stylesheet">
+
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link
+            href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap"
+            rel="stylesheet">
 
 </head>
+
 <body>
-    
+
     <header>
 
-        
+
 
     </header>
 
     <main>
 
-        <div id="superior">
+        <div class="start">
 
-            <h1 id="title">AUTOENERGY</h1>
-            <p id="introduction">O AutoEnergy é uma ferramenta desenvolvida para auxiliar centros automotivos na estimativa do consumo de energia elétrica de seus equipamentos. A aplicação permite calcular o consumo mensal, estimar custos operacionais e apresentar recomendações simples para o uso mais eficiente da energia.</p>
+            <h1 class="title">AUTOENERGY</h1>
+            <p id="introduction">O AutoEnergy é uma ferramenta desenvolvida para auxiliar centros automotivos na
+                estimativa do consumo de energia elétrica de seus equipamentos. A aplicação permite calcular o consumo
+                mensal, estimar custos operacionais e apresentar recomendações simples para o uso mais eficiente da
+                energia.
+            </p>
 
             <form id="input">
 
@@ -30,7 +46,7 @@
                 <input type="number" id="hoursPerDay" placeholder="horas por dia">
                 <input type="number" id="daysPerMonth" placeholder="dias por mês">
                 <input type="number" id="quantity" placeholder="quantidade">
-                
+
                 <select id="category" required>
 
                     <option value="" selected disabled>selecione</option>
@@ -47,46 +63,83 @@
             </form>
 
         </div>
+        
+        <div class="simulation">
 
-        <div id="inferior">
+            <h1 class="title">SUA SIMULAÇÃO</h1>
 
-            <h1 id="titleResults">SUA SIMULAÇÃO</h1>
+            <div class="consumptionAndCost">
 
-            <div id="consumptionAndCost">
+                <div class="boxesRow">
 
-                <h2 id="consumptionTitle">Consumo Mensal</h2>
-                <h4 id="consumption"></h4>
+                    <div class="consumptionBoxes">
 
-                <h2 id="energyRateTitle">Tarifa de Energia</h2>
-                <h4 id="energyRate"></h4>
+                        <h2 id="consumptionTitle">Consumo</h2>
+                        <h4 class="value" id="consumption"></h4>
+                        <p class="unit">kWh</p>
+                    
+                    </div>
 
-                <h2 id="costTitle">Custo</h2>
-                <h4 id="cost"></h4>
+                    <div class="consumptionBoxes" id="energyRateBox">
 
-                <p>OBS: Os valores apresentados representam uma estimativa mensal baseada no consumo de energia (kWh). A tarifa utilizada possui caráter aproximado e foi adotada apenas para fins de simulação.</p>
+                        <h2 id="energyRateTitle">Tarifa</h2>
+                        <h4 class="value" id="energyRate"></h4>
+                        <p class="unit">R$/kWh</p>
+
+                    </div>
+
+                    <div class="consumptionBoxes">
+
+                        <h2 id="costTitle">Custo</h2>
+                        <h4 class="value" id="cost"></h4>
+                        <p class="unit">R$</p>
+
+                    </div>
+
+                </div>
+
+                <p class="obs">OBS: Os valores apresentados representam uma estimativa mensal baseada no consumo de energia (kWh). A
+                    tarifa utilizada possui caráter aproximado e foi adotada apenas para fins de simulação.
+                </p>
 
             </div>
-
-            <div id="tips">
-
-                <div id="tip1">
-                    <h4 id="title1"></h4>
-                    <p id="textTip1"></p>
-                </div>
-
-                <div id="tip2">
-                    <h4 id="title2"></h4>
-                    <p id="textTip2"></p>
-                </div>
-
-                <div id="tip3">
-                    <h4 id="title3"></h4>
-                    <p id="textTip3"></p>
-                </div>
-
-            </div>
-
         </div>
+
+        <div class="tips">
+
+            <h1 class="title">DICAS DE EFICIÊNCIA</h1>
+
+            <div id="tip1">
+                <h4 id="title1"></h4>
+                <p id="textTip1"></p>
+
+                <div id="applianceTip1">
+                    <p id="appliances1"></p>
+                </div>
+
+            </div>
+
+            <div id="tip2">
+                <h4 id="title2"></h4>
+                <p id="textTip2"></p>
+
+                <div id="applianceTip2">
+                    <p id="appliances2"></p>
+                </div>
+
+            </div>
+
+            <div id="tip3">
+                <h4 id="title3"></h4>
+                <p id="textTip3"></p>
+
+                <div id="applianceTip3">
+                    <p id="appliances3"></p>
+                </div>
+
+            </div>
+        </div>
+
 
     </main>
 

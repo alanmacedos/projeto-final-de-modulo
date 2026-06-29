@@ -89,38 +89,40 @@ function definedEfficiencyTip (appliances) {
 
 function displayTips(tipsMap) {
 
-    let counter = 0;
+    const textTip1 = document.getElementById("textTip1");
+    const textTip2 = document.getElementById("textTip2");
+    const textTip3 = document.getElementById("textTip3");
 
-    const itsTip1 = document.getElementById(tip1);
-    const itsTip2 = null;
-    const itsTip3 = null;
+    const appliances1 = document.getElementById("appliances1");
+    const appliances2 = document.getElementById("appliances2");
+    const appliances3 = document.getElementById("appliances3");
+
+    let counter = 0;
 
     for (const [tip, appliances] of tipsMap)
     {
-       counter++;
-       if (counter == 1)
+       if (counter == 0)
         {
             // show idle tip and appliances
-            get(tip);
-            get(appliances);
-
+            textTip1.textContent = tip;
+            appliances1.textContent = appliances.join(", ");
         }
 
-        else if (counter == 2)
+        else if (counter == 1)
         {
             // show maintainence tip and appliances
-
-            get(tip);
-            get(appliances);
+            textTip2.textContent = tip;
+            appliances2.textContent = appliances.join(", ");
         }
 
         else
         {
             // show lighting tip and appliances
-
-            get(tip);
-            get(appliances);
+            textTip3.textContent = tip;
+            appliances3.textContent = appliances.join(", ")
         }
+
+        counter++;
     }
 }
 
@@ -140,13 +142,17 @@ function updateScreen() {
 
     const tips = definedEfficiencyTip(appliances);
 
-    document.getElementById("consumption").textContent = `${totalConsumption.toFixed(2)} kWh`;
+    document.getElementById("consumption").textContent = totalConsumption.toFixed(2);
 
-    document.getElementById("energyRate").textContent = `R$ ${energyRateKWh.toFixed(2)}`;
+    document.getElementById("energyRate").textContent = energyRateKWh.toFixed(2);
 
-    document.getElementById("cost").textContent = `R$ ${cost.toFixed(2)}`;
+    document.getElementById("cost").textContent = cost.toFixed(2);
+
+    displayTips(tips);
 
     console.log(tips);
+
+
 }
 
 // results
