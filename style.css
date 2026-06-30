@@ -21,9 +21,9 @@ main {
     font-family: 'Inter', sans-serif;
     text-align: justify;
     border-radius: 10px;
-    width: 80vw;
+    width: 60vw;
     height: auto;
-    padding: 15px;
+    padding: 15px 100px;
     margin-top: 40px;
 }
 
@@ -40,7 +40,7 @@ main {
     font-family: 'Inter', sans-serif;
     text-align: justify;
     border-radius: 10px;
-    width: 80vw;
+    width: 60vw;
     height: auto;
     padding: 15px;
     margin-top: 40px;
@@ -59,6 +59,15 @@ main {
     gap: 50px;
 }
 
+.boxesTitle {
+    background-color: #10b981;
+    padding: 10px 20px;
+    border-radius: 15px;
+
+    font-family: 'Archivo Black', sans-serif;
+    font-size: 1.7rem;
+}
+
 .consumptionBoxes {
     background-color: #f2f2f2;
     border-radius: 25px;
@@ -72,24 +81,19 @@ main {
     justify-content: space-around;
 }
 
-.consumptionBoxes h2 {
+/* .consumptionBoxes h2 {
     background-color: #10b981;
     padding: 10px 20px;
     border-radius: 15px;
 
     font-family: 'Archivo Black', sans-serif;
     font-size: 2rem;
-}
+} */
 
 .value {
     font-family: 'Archivo Black', sans-serif;
     font-size: 5rem;
 }
-
-/* .consumptionBoxes #consumption {
-    font-family: 'Archivo Black', sans-serif;
-    font-size: 40px;
-} */
 
 .unit {
     font-family: 'Archivo Black', sans-serif;
@@ -106,7 +110,7 @@ main {
     font-family: 'Inter', sans-serif;
     text-align: justify;
     border-radius: 10px;
-    width: 80vw;
+    width: 60vw;
     height: auto;
     padding: 5px;
     margin-top: 40px;
