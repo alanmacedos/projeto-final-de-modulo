@@ -27,6 +27,48 @@ main {
     margin-top: 40px;
 }
 
+#subtitleSimulation {
+    margin-top: 20px;
+}
+
+#input {
+    display: flex;
+    gap: 20px;
+    align-items: flex-end;
+    flex-wrap: wrap;
+    margin-top: 15px;
+}
+
+.campo {
+    display: flex;
+    flex-direction: column;
+}
+
+.campo label {
+    margin-bottom: 5px;
+    font-weight: bold;
+}
+
+.campo input,
+.campo select {
+    width: 170px;
+    padding: 5px;
+    border: 1px solid #767676;
+    border-radius: 5px;
+}
+
+#button {
+    background-color: #10b981;
+    font-family: 'Inter', sans-serif;
+    color: white;
+    font-weight: bold;
+    text-align: center;
+    border: 1px solid gray;
+    border-radius: 5px;
+    width: 90px;
+    height: 30px;
+}
+
 .title {
     font-family: 'Archivo Black', sans-serif;
     display: flex;
@@ -81,16 +123,43 @@ main {
     justify-content: space-around;
 }
 
-/* .consumptionBoxes h2 {
-    background-color: #10b981;
-    padding: 10px 20px;
-    border-radius: 15px;
+.value {
+    font-family: 'Archivo Black', sans-serif;
+    font-size: 5rem;
+}
+
+/* #energyRate {
+    width: 18px;
+    border: none;
+    background: none;
+    outline: none;
+
+    text-align: center;
 
     font-family: 'Archivo Black', sans-serif;
-    font-size: 2rem;
+    font-size: 5rem;
+
+    padding: 0;
 } */
 
-.value {
+#energyRateText {
+    cursor: pointer;
+}
+
+#energyRate:hover {
+    opacity: 0.8;
+}
+
+#energyRateInput {
+    display: none;
+    width: 170px;
+
+    border: none;
+    background: transparent;
+    outline: none;
+
+    text-align: center;
+
     font-family: 'Archivo Black', sans-serif;
     font-size: 5rem;
 }
@@ -113,5 +182,5 @@ main {
     width: 60vw;
     height: auto;
     padding: 5px;
-    margin-top: 40px;
+    margin: 40px;
 }

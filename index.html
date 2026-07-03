@@ -24,8 +24,6 @@
 
     <header>
 
-
-
     </header>
 
     <main>
@@ -39,31 +37,53 @@
                 energia.
             </p>
 
+            <h2 id="subtitleSimulation">Adicione seus aparelhos abaixo:</h2>
+
             <form id="input">
 
-                <input type="text" id="name" placeholder="nome">
-                <input type="number" id="watts" placeholder="watts">
-                <input type="number" id="hoursPerDay" placeholder="horas por dia">
-                <input type="number" id="daysPerMonth" placeholder="dias por mês">
-                <input type="number" id="quantity" placeholder="quantidade">
+                <div class="campo">
+                    <label for="name">Nome</label>
+                    <input type="text" id="name" placeholder="Digite o nome" required maxlength="50">
+                </div>
 
-                <select id="category" required>
+                <div class="campo">
+                    <label for="watts">Watts</label>
+                    <input type="number" id="watts" placeholder="Digite a potência" min="1" required>
+                </div>
 
-                    <option value="" selected disabled>selecione</option>
-                    <option value="Elevação">Elevação</option>
-                    <option value="Suporte">Suporte</option>
-                    <option value="Iluminação">Iluminação</option>
+                <div class="campo">
+                    <label for="hoursPerDay">Horas por dia</label>
+                    <input type="number" id="hoursPerDay" placeholder="Ex.: 8" min="1" max="24" required>
+                </div>
 
-                </select>
+                <div class="campo">
+                    <label for="daysPerMonth">Dias por mês</label>
+                    <input type="number" id="daysPerMonth" placeholder="Ex.: 22" min="1" max="31" required>
+                </div>
+
+                <div class="campo">
+                    <label for="quantity">Quantidade</label>
+                    <input type="number" id="quantity" placeholder="Ex.: 2" min="1" required>
+                </div>
+
+                <div class="campo">
+                    <label for="category">Categoria</label>
+                    <select id="category" required>
+                        <option value="" selected disabled>Selecione</option>
+                        <option value="Elevação">Elevação</option>
+                        <option value="Suporte">Suporte</option>
+                        <option value="Iluminação">Iluminação</option>
+                    </select>
+                </div>
 
                 <button id="button" type="submit">
-                    adicionar
+                    Adicionar
                 </button>
 
             </form>
 
         </div>
-        
+
         <div class="simulation">
 
             <h1 class="title">SUA SIMULAÇÃO</h1>
@@ -77,13 +97,23 @@
                         <h2 class="boxesTitle" id="consumptionTitle">Consumo</h2>
                         <h4 class="value" id="consumption"></h4>
                         <p class="unit">kWh</p>
-                    
+
                     </div>
 
                     <div class="consumptionBoxes" id="energyRateBox">
 
                         <h2 class="boxesTitle" id="energyRateTitle">Tarifa</h2>
-                        <h4 class="value" id="energyRate"></h4>
+
+                        <h4 class="value" id="energyRateText">1.05</h4>
+
+                        <input
+                        type="number"
+                        class="value"
+                        id="energyRateInput"
+                        value="1.05"
+                        step="0.1"
+                        min="0.01">
+
                         <p class="unit">R$/kWh</p>
 
                     </div>
@@ -98,7 +128,8 @@
 
                 </div>
 
-                <p class="obs">OBS: Os valores apresentados representam uma estimativa mensal baseada no consumo de energia (kWh). A
+                <p class="obs">OBS: Os valores apresentados representam uma estimativa mensal baseada no consumo de
+                    energia (kWh). A
                     tarifa utilizada possui caráter aproximado e foi adotada apenas para fins de simulação.
                 </p>
 

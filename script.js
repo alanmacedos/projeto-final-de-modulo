@@ -1,5 +1,5 @@
-// actual energy rate
-const energyRateKWh = 1.05;
+// energy rate
+let energyRate = 1.05;
 
 // appliances array
 const appliances = [];
@@ -37,7 +37,8 @@ function calculateTotalConsumption (appliances) {
 
 // cost function
 function calculateCost (totalConsumption) {
-    const totalCost =  energyRateKWh * totalConsumption;
+
+    const totalCost =  energyRate * totalConsumption;
 
     return totalCost;
 }
@@ -144,8 +145,6 @@ function updateScreen() {
 
     document.getElementById("consumption").textContent = totalConsumption.toFixed(2);
 
-    document.getElementById("energyRate").textContent = energyRateKWh.toFixed(2);
-
     document.getElementById("cost").textContent = cost.toFixed(2);
 
     displayTips(tips);
@@ -155,17 +154,16 @@ function updateScreen() {
 
 }
 
-// results
-// const totalConsumption = calculateTotalConsumption(appliances);
-// const cost = calculateCost(totalConsumption);
+function saveEnergyRate () {
+    
+    energyRate = Number(energyRateInput.value);
+    energyRateText.textContent = energyRateText.toFixed(2);
 
-// // display the results related to kWh and cost
-// console.log(`Consumo de kWh: ${totalConsumption.toFixed(2)}.`);
-// console.log(`Custo: R$ ${cost.toFixed(2)}.`);
+    energyRateInput.style.display = "none";
+    energyRateText.style.display = "block";
 
-// // efficiency tips
-// const tips = definedEfficiencyTip(appliances);
-// console.log(tips);
+    updateScreen();
+}
 
 const form = document.getElementById("input");
 
@@ -186,6 +184,28 @@ form.addEventListener("submit", function(event) {
 
     updateScreen();
 
+    form.reset();
+
     console.log(appliances);
 });
 
+const energyRateText = document.getElementById("energyRateText");
+const energyRateInput = document.getElementById("energyRateInput");
+
+energyRateText.addEventListener("click", () => {
+
+    energyRateText.style.display = "none";
+    energyRateInput.style.display = "block";
+
+    energyRateInput.focus();
+    energyRateInput.select();
+});
+
+energyRateInput.addEventListener("blur", saveEnergyRate);
+
+energyRateInput.addEventListener("keydown", (event) => {
+    if (event.key === "Enter")
+    {
+        saveEnergyRate();
+    }
+});
