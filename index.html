@@ -41,39 +41,43 @@
 
             <form id="input">
 
-                <div class="campo">
-                    <label for="name">Nome</label>
-                    <input type="text" id="name" placeholder="Digite o nome" required maxlength="50">
-                </div>
+                <div id="formFields">
 
-                <div class="campo">
-                    <label for="watts">Watts</label>
-                    <input type="number" id="watts" placeholder="Digite a potência" min="1" required>
-                </div>
+                    <div class="campo">
+                        <label for="name">Nome</label>
+                        <input type="text" id="name" placeholder="Digite o nome" required maxlength="50">
+                    </div>
 
-                <div class="campo">
-                    <label for="hoursPerDay">Horas por dia</label>
-                    <input type="number" id="hoursPerDay" placeholder="Ex.: 8" min="1" max="24" required>
-                </div>
+                    <div class="campo">
+                        <label for="watts">Watts</label>
+                        <input type="number" id="watts" placeholder="Digite a potência" min="1" required>
+                    </div>
 
-                <div class="campo">
-                    <label for="daysPerMonth">Dias por mês</label>
-                    <input type="number" id="daysPerMonth" placeholder="Ex.: 22" min="1" max="31" required>
-                </div>
+                    <div class="campo">
+                        <label for="hoursPerDay">Horas por dia</label>
+                        <input type="number" id="hoursPerDay" placeholder="Ex.: 8" min="1" max="24" required>
+                    </div>
 
-                <div class="campo">
-                    <label for="quantity">Quantidade</label>
-                    <input type="number" id="quantity" placeholder="Ex.: 2" min="1" required>
-                </div>
+                    <div class="campo">
+                        <label for="daysPerMonth">Dias por mês</label>
+                        <input type="number" id="daysPerMonth" placeholder="Ex.: 22" min="1" max="31" required>
+                    </div>
 
-                <div class="campo">
-                    <label for="category">Categoria</label>
-                    <select id="category" required>
-                        <option value="" selected disabled>Selecione</option>
-                        <option value="Elevação">Elevação</option>
-                        <option value="Suporte">Suporte</option>
-                        <option value="Iluminação">Iluminação</option>
-                    </select>
+                    <div class="campo">
+                        <label for="quantity">Quantidade</label>
+                        <input type="number" id="quantity" placeholder="Ex.: 2" min="1" required>
+                    </div>
+
+                    <div class="campo">
+                        <label for="category">Categoria</label>
+                        <select id="category" required>
+                            <option value="" selected disabled>Selecione</option>
+                            <option value="Elevação">Elevação</option>
+                            <option value="Suporte">Suporte</option>
+                            <option value="Iluminação">Iluminação</option>
+                        </select>
+                    </div>
+
                 </div>
 
                 <button id="button" type="submit">
@@ -95,7 +99,7 @@
                     <div class="consumptionBoxes">
 
                         <h2 class="boxesTitle" id="consumptionTitle">Consumo</h2>
-                        <h4 class="value" id="consumption"></h4>
+                        <h4 class="value" id="consumption">0</h4>
                         <p class="unit">kWh</p>
 
                     </div>
@@ -106,13 +110,7 @@
 
                         <h4 class="value" id="energyRateText">1.05</h4>
 
-                        <input
-                        type="number"
-                        class="value"
-                        id="energyRateInput"
-                        value="1.05"
-                        step="0.1"
-                        min="0.01">
+                        <input type="number" class="value" id="energyRateInput" value="1.05" step="0.01" min="0.01">
 
                         <p class="unit">R$/kWh</p>
 
@@ -121,7 +119,7 @@
                     <div class="consumptionBoxes">
 
                         <h2 class="boxesTitle" id="costTitle">Custo</h2>
-                        <h4 class="value" id="cost"></h4>
+                        <h4 class="value" id="cost">0</h4>
                         <p class="unit">R$</p>
 
                     </div>
@@ -138,37 +136,12 @@
 
         <div class="tips">
 
-            <h1 class="title">DICAS DE EFICIÊNCIA</h1>
+            <h1 class="title" id="titleTipsContainer">DICAS DE EFICIÊNCIA</h1>
 
-            <div id="tip1">
-                <h4 id="title1"></h4>
-                <p id="textTip1"></p>
-
-                <div id="applianceTip1">
-                    <p id="appliances1"></p>
-                </div>
+            <div id="tipsContainer">
 
             </div>
 
-            <div id="tip2">
-                <h4 id="title2"></h4>
-                <p id="textTip2"></p>
-
-                <div id="applianceTip2">
-                    <p id="appliances2"></p>
-                </div>
-
-            </div>
-
-            <div id="tip3">
-                <h4 id="title3"></h4>
-                <p id="textTip3"></p>
-
-                <div id="applianceTip3">
-                    <p id="appliances3"></p>
-                </div>
-
-            </div>
         </div>
 
 

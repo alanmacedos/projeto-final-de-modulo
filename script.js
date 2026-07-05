@@ -4,7 +4,7 @@ let energyRate = 1.05;
 // appliances array
 const appliances = [];
 
-function Appliance (
+function Appliance(
     name,
     watts,
     hoursPerDay,
@@ -21,11 +21,11 @@ function Appliance (
 }
 
 // consumption functions
-function calculateConsumption (appliance) {
+function calculateConsumption(appliance) {
     return (appliance.watts * appliance.hoursPerDay * appliance.daysPerMonth * appliance.quantity) / 1000;
 }
 
-function calculateTotalConsumption (appliances) {
+function calculateTotalConsumption(appliances) {
     let totalConsumption = 0;
 
     for (const appliance of appliances) {
@@ -36,52 +36,46 @@ function calculateTotalConsumption (appliances) {
 }
 
 // cost function
-function calculateCost (totalConsumption) {
+function calculateCost(totalConsumption) {
 
-    const totalCost =  energyRate * totalConsumption;
+    const totalCost = energyRate * totalConsumption;
 
     return totalCost;
 }
 
 // efficiency tip function
 
-function definedEfficiencyTip (appliances) {
-    
+function definedEfficiencyTip(appliances) {
+
     const tipsMap = new Map();
 
     for (const appliance of appliances) {
-    
-        if (appliance.category === "Elevação")
-        {
-            if (!tipsMap.has(efficiencyTips.maintainence))
-            {
+
+        if (appliance.category === "Elevação") {
+            if (!tipsMap.has(efficiencyTips.maintainence)) {
                 tipsMap.set(efficiencyTips.maintainence, []);
             }
-            
+
             tipsMap.get(efficiencyTips.maintainence)
-                   .push(appliance.name);
+                .push(appliance.name);
         }
 
-        else if (appliance.category === "Suporte")
-        {
-            if (!tipsMap.has(efficiencyTips.idle))
-            {
+        else if (appliance.category === "Suporte") {
+            if (!tipsMap.has(efficiencyTips.idle)) {
                 tipsMap.set(efficiencyTips.idle, []);
             }
-            
+
             tipsMap.get(efficiencyTips.idle)
-                   .push(appliance.name);
+                .push(appliance.name);
         }
 
-        else
-        {
-            if (!tipsMap.has(efficiencyTips.lighting))
-            {
+        else {
+            if (!tipsMap.has(efficiencyTips.lighting)) {
                 tipsMap.set(efficiencyTips.lighting, []);
             }
-            
+
             tipsMap.get(efficiencyTips.lighting)
-                   .push(appliance.name);
+                .push(appliance.name);
         }
     }
 
@@ -90,53 +84,41 @@ function definedEfficiencyTip (appliances) {
 
 function displayTips(tipsMap) {
 
-    const textTip1 = document.getElementById("textTip1");
-    const textTip2 = document.getElementById("textTip2");
-    const textTip3 = document.getElementById("textTip3");
+    const container = document.getElementById("tipsContainer");
 
-    const appliances1 = document.getElementById("appliances1");
-    const appliances2 = document.getElementById("appliances2");
-    const appliances3 = document.getElementById("appliances3");
+    container.innerHTML = "";
 
-    let counter = 0;
+    for (const [tip, appliances] of tipsMap) {
 
-    for (const [tip, appliances] of tipsMap)
-    {
-       if (counter == 0)
-        {
-            // show idle tip and appliances
-            textTip1.textContent = tip;
-            appliances1.textContent = appliances.join(", ");
-        }
+        const card = document.createElement("div");
+        card.classList.add("tipCard");
 
-        else if (counter == 1)
-        {
-            // show maintainence tip and appliances
-            textTip2.textContent = tip;
-            appliances2.textContent = appliances.join(", ");
-        }
+        const applianceBox = document.createElement("div");
+        applianceBox.classList.add("tipAppliances");
+        applianceBox.textContent = appliances.join(", ");
 
-        else
-        {
-            // show lighting tip and appliances
-            textTip3.textContent = tip;
-            appliances3.textContent = appliances.join(", ")
-        }
+        const text = document.createElement("div");
+        text.classList.add("tipText");
+        text.textContent = tip;
 
-        counter++;
+        card.appendChild(applianceBox);
+        card.appendChild(text);
+
+        container.appendChild(card);
+
     }
 }
 
 // efficiency tips
 const efficiencyTips = {
-    idle : "Tire da tomada quando não estiver em uso.",
-    maintainence : "Faça as devidas manutenções preventivas para manter a eficiência e o bom funcionamento.",
-    lighting : "Recomenda-se lâmpadas de LED e buscar alternativas de aproveitamento de luz solar.",
+    idle: "Tire da tomada quando não estiver em uso.",
+    maintainence: "Faça as devidas manutenções preventivas para manter a eficiência e o bom funcionamento.",
+    lighting: "Recomenda-se lâmpadas de LED e buscar alternativas de aproveitamento de luz solar.",
 };
 
 // refresh screen
 function updateScreen() {
-    
+
     const totalConsumption = calculateTotalConsumption(appliances);
 
     const cost = calculateCost(totalConsumption);
@@ -150,14 +132,12 @@ function updateScreen() {
     displayTips(tips);
 
     console.log(tips);
-
-
 }
 
-function saveEnergyRate () {
-    
+function saveEnergyRate() {
+
     energyRate = Number(energyRateInput.value);
-    energyRateText.textContent = energyRateText.toFixed(2);
+    energyRateText.textContent = energyRate.toFixed(2);
 
     energyRateInput.style.display = "none";
     energyRateText.style.display = "block";
@@ -167,7 +147,7 @@ function saveEnergyRate () {
 
 const form = document.getElementById("input");
 
-form.addEventListener("submit", function(event) {
+form.addEventListener("submit", function (event) {
 
     event.preventDefault();
 
@@ -204,8 +184,7 @@ energyRateText.addEventListener("click", () => {
 energyRateInput.addEventListener("blur", saveEnergyRate);
 
 energyRateInput.addEventListener("keydown", (event) => {
-    if (event.key === "Enter")
-    {
+    if (event.key === "Enter") {
         saveEnergyRate();
     }
 });
