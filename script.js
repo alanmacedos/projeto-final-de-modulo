@@ -69,12 +69,66 @@ function definedEfficiencyTip(appliances) {
                 .push(appliance.name);
         }
 
-        else {
+        else if (appliance.category === "Iluminação") {
             if (!tipsMap.has(efficiencyTips.lighting)) {
                 tipsMap.set(efficiencyTips.lighting, []);
             }
 
             tipsMap.get(efficiencyTips.lighting)
+                .push(appliance.name);
+        }
+
+        else if (appliance.category === "Torno") {
+            if (!tipsMap.has(efficiencyTips.lathe)) {
+                tipsMap.set(efficiencyTips.lathe, []);
+            }
+
+            tipsMap.get(efficiencyTips.lathe)
+                .push(appliance.name);
+        }
+
+        else if (appliance.category === "CNC") {
+            if (!tipsMap.has(efficiencyTips.cnc)) {
+                tipsMap.set(efficiencyTips.cnc, []);
+            }
+
+            tipsMap.get(efficiencyTips.cnc)
+                .push(appliance.name);
+        }
+
+        else if (appliance.category === "Eletroerosão por Penetração") {
+            if (!tipsMap.has(efficiencyTips.sinkerEdm)) {
+                tipsMap.set(efficiencyTips.sinkerEdm, []);
+            }
+
+            tipsMap.get(efficiencyTips.sinkerEdm)
+                .push(appliance.name);
+        }
+
+        else if (appliance.category === "Eletroerosão a Fio") {
+            if (!tipsMap.has(efficiencyTips.wireEdm)) {
+                tipsMap.set(efficiencyTips.wireEdm, []);
+            }
+
+            tipsMap.get(efficiencyTips.wireEdm)
+                .push(appliance.name);
+        }
+
+        else if (appliance.category === "Fresadora") {
+            if (!tipsMap.has(efficiencyTips.millingMachine)) {
+                tipsMap.set(efficiencyTips.millingMachine, []);
+            }
+
+            tipsMap.get(efficiencyTips.millingMachine)
+                .push(appliance.name);
+        }
+
+        else {
+            if (!tipsMap.has(efficiencyTips.press)) {
+                tipsMap.set(efficiencyTips.press, []);
+            }
+
+            tipsMap.get(efficiencyTips.press)
                 .push(appliance.name);
         }
     }
@@ -114,6 +168,43 @@ const efficiencyTips = {
     idle: "Tire da tomada quando não estiver em uso.",
     maintainence: "Faça as devidas manutenções preventivas para manter a eficiência e o bom funcionamento.",
     lighting: "Recomenda-se lâmpadas de LED e buscar alternativas de aproveitamento de luz solar.",
+    lathe: `• Evite deixar o motor ligado durante longos períodos sem usinagem.
+
+    • Faça a lubrificação e manutenção preventiva regularmente.
+    
+    • Utilize ferramentas de corte afiadas para reduzir o esforço do motor.`,
+    
+    cnc: `• Agrupe operações para reduzir ciclos de partida e parada da máquina.
+    
+    • Mantenha o sistema de refrigeração e lubrificação em boas condições.
+    
+    • Planeje programas eficientes para diminuir o tempo de usinagem.`,
+
+    // edm = Electrical Discharge Machining - Eletroerosão
+    
+    sinkerEdm: `• Desligue a máquina quando houver longos intervalos entre operações.
+    
+    • Faça a manutenção do sistema dielétrico e dos filtros.
+    
+    • Utilize parâmetros de usinagem adequados para evitar consumo excessivo.`,
+    
+    wireEdm: `• Mantenha a água deionizada e os filtros em boas condições.
+    
+    • Utilize parâmetros compatíveis com o material da peça.
+    
+    • Evite deixar a máquina energizada sem programação ativa.`,
+    
+    millingMachine: `• Utilize ferramentas afiadas e corretamente balanceadas.
+    
+    • Desligue a máquina durante pausas prolongadas.
+    
+    • Realize manutenção preventiva nos componentes mecânicos.`,
+    
+    press: `• Evite manter o sistema hidráulico acionado sem necessidade.
+    
+    • Faça inspeções periódicas para evitar perdas de eficiência.
+    
+    • Planeje a produção em lotes para reduzir partidas frequentes.`
 };
 
 // refresh screen
