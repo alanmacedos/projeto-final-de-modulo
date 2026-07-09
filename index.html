@@ -31,10 +31,7 @@
         <div class="start">
 
             <h1 class="title">AUTOENERGY</h1>
-            <p id="introduction">O AutoEnergy é uma ferramenta desenvolvida para auxiliar centros automotivos na
-                estimativa do consumo de energia elétrica de seus equipamentos. A aplicação permite calcular o consumo
-                mensal, estimar custos operacionais e apresentar recomendações simples para o uso mais eficiente da
-                energia.
+            <p id="introduction">O AutoEnergy é uma ferramenta desenvolvida para auxiliar na análise do consumo de energia elétrica de equipamentos utilizados em ambientes industriais. Nesta primeira versão, a aplicação permite cadastrar aparelhos, estimar o consumo mensal e o custo de energia elétrica, além de apresentar recomendações de eficiência energética específicas para a categoria de cada equipamento, contribuindo para uma utilização mais consciente dos recursos energéticos.
             </p>
 
             <h2 id="subtitleSimulation">Adicione seus aparelhos abaixo:</h2>
@@ -115,9 +112,15 @@
 
                         <h2 class="boxesTitle" id="energyRateTitle">Tarifa</h2>
 
-                        <h4 class="value" id="energyRateText">1.05</h4>
+                        <div class="toolTipContainer">
 
-                        <input type="number" class="value" id="energyRateInput" value="1.05" step="0.01" min="0.01">
+                            <h4 class="value" id="energyRateText">1.05</h4>
+
+                            <input type="number" class="value" id="energyRateInput" value="1.05" step="0.01" min="0.01">
+
+                            <span class="toolTip">Clique para alterar a tarifa.</span>
+
+                        </div>
 
                         <p class="unit">R$/kWh</p>
 
