@@ -1,5 +1,5 @@
 // energy rate
-let energyRate = 1.05;
+let energyRate = 1.02;
 
 // appliances array
 const appliances = [];
